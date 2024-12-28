@@ -3,102 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Blocks Page</title>
+    <title>Benefits of a Credit Card</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e293b, #4b5563);
-            color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            width: 80%;
-            max-width: 1200px;
-        }
-
-        .block {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s ease, background 0.2s ease;
-            cursor: pointer;
-        }
-
-        .block:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .block h3 {
-            margin: 0;
-            font-size: 1.5em;
-            color: #ffffff;
-        }
-
-        .block p {
-            margin: 10px 0 0;
-            font-size: 1em;
-            color: #d1d5db;
-        }
-
-        .block a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            height: 100%;
-        }
-
-        img {
-            height: 110px;
-            border-radius: 15px;
-        }
-        
+    body {
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #1e293b, #4b5563);
+        color: #e0e0e0; /* Soft white for better readability */
+    }
+    header {
+        background: linear-gradient(135deg, #005fa3, #007bbf);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: #e0e0e0; /* Soft white for better readability */
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 2rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .benefit {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.2s ease, background 0.2s ease;
+        cursor: pointer;
+    }
+    .benefit:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.2);
+    }
+    .benefit h2 {
+        color: #4fc3f7; /* Light blue for headings */
+        margin-top: 0;
+    }
+    .benefit p {
+        color: #b0bec5; /* Light gray for secondary text */
+    }
+    .cta-button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        color: white;
+        background: linear-gradient(135deg, #0074D9, #00a8ff);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta-button:hover {
+        background: linear-gradient(135deg, #005fa3, #007bbf);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #1e293b;
+        color: #e0e0e0; /* Soft white for better readability */
+        margin-top: 2rem;
+    }
+    .nav-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 4rem; /* Increase the space from the main content */
+        margin-bottom: 4rem; /* Add space below the buttons */
+    }
+    .nav-buttons a {
+        padding: 1rem 2rem; /* Increase the size of buttons */
+        font-size: 1.2rem;
+        color: white;
+        background: linear-gradient(135deg, #0074D9, #00a8ff);
+        border: none;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .nav-buttons a:hover {
+        background: linear-gradient(135deg, #005fa3, #007bbf);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
     </style>
 </head>
 <body>
+    <header>
+        <h1>The Benefits of Owning a Credit Card</h1>
+    </header>
     <div class="container">
-        <div class="block">
-            <a href="https://example.com/chase" target="_blank">
-                <img src="images/Chase.png" alt="" class="logo">
-                <h3>Chase</h3>
-            </a>
+        <div class="benefit">
+            <h2>1. Convenience</h2>
+            <p>Credit cards allow you to make purchases online, over the phone, and in-store without the need to carry cash. They are widely accepted across the globe.</p>
+            <a href="#" class="cta-button">Learn More</a>
         </div>
-        <div class="block">
-            <a href="https://example.com/capitalone" target="_blank">
-                <img src="images/CapitalOne.png" alt="">
-                <h3>Capital One</h3>
-            </a>
+        <div class="benefit">
+            <h2>2. Rewards and Cashback</h2>
+            <p>Many credit cards offer rewards programs, including points, miles, and cashback on purchases, helping you save money or earn perks over time.</p>
+            <a href="#" class="cta-button">Learn More</a>
         </div>
-        <div class="block">
-            <a href="https://example.com/amex" target="_blank">
-                <img src="images/AmexLogo.png" alt="">
-                <h3>American Express</h3>
-            </a>
+        <div class="benefit">
+            <h2>3. Build Credit History</h2>
+            <p>Using a credit card responsibly by paying on time helps you build and improve your credit score, which is essential for future financial opportunities like loans and mortgages.</p>
+            <a href="#" class="cta-button">Learn More</a>
         </div>
-        <div class="block">
-            <a href="https://example.com/citi" target="_blank">
-                <img src="images/CitiBank.png" alt="">
-                <h3>CitiBank</h3>
-            </a>
+        <div class="benefit">
+            <h2>4. Fraud Protection</h2>
+            <p>Most credit cards come with fraud protection, ensuring that unauthorized transactions are not charged to you.</p>
+            <a href="#" class="cta-button">Learn More</a>
         </div>
-        <div class="block">
-            <a href="https://example.com/wellsfargo" target="_blank">
-                <img src="images/WellsFargo.png" alt="">
-                <h3>Wells Fargo</h3>
-            </a>
-        </div>
+    </div>
+    <div class="nav-buttons">
+        <a href="page1.html" class="cta-button">Find a Credit Card</a>
+        <a href="page4.html" class="cta-button">Benifit Calculator</a>
     </div>
 </body>
 </html>
