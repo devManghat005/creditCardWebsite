@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Experience Survey</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e293b, #4b5563);
+            color: #333;
+        }
+
+        #quiz-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 350px;
+            transition: transform 0.3s ease;
+        }
+
+        #quiz-container:hover {
+            transform: scale(1.05);
+        }
+
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .options {
+            margin-bottom: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
+        }
+
+        .options label:hover {
+            background-color: #50E3C2;
+            transform: translateY(-4px);
+        }
+
+        .options input {
+            display: none;
+        }
+
+        .options label.selected {
+            background-color: #4A90E2;
+            color: white;
+            font-weight: bold;
+            transform: scale(1.02);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover:not(:disabled) {
+            background-color: #357ABD;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            #quiz-container {
+                width: 280px;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quiz-container">
+        <div id="question-container">
+            <div class="question" id="question-text"></div>
+            <div class="options" id="options-container"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "How many years of credit experience have you got?",
+                options: ["Less than 1 year", "1-3 years", "3-5 years", "More than 5 years"]
+            },
+            {
+                question: "Which are you? Student or Employed?",
+                options: ["Student", "Employed"]
+            },
+            {
+                question: "How many credit cards do you have?",
+                options: ["None", "1", "2-3", "More than 3"]
+            },
+            {
+                question: "What is your credit score?",
+                options: ["Below 600", "600-700", "700-800", "Above 800"]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        const answers = [];
+
+        function loadQuestion(index) {
+            const questionData = questions[index];
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = ''; // Clear previous options
+
+            // Display the question
+            questionText.textContent = questionData.question;
+
+            // Create options
+            questionData.options.forEach((option, i) => {
+                const optionLabel = document.createElement('label');
+                optionLabel.innerHTML = `
+                    <input type="radio" name="answer" value="${i + 1}"> ${option}
+                `;
+                optionsContainer.appendChild(optionLabel);
+
+                // Highlight the selected option
+                optionLabel.querySelector('input').addEventListener('change', () => {
+                    // Remove 'selected' class from all labels
+                    document.querySelectorAll('.options label').forEach(label => label.classList.remove('selected'));
+
+                    // Add 'selected' class to the clicked label
+                    optionLabel.classList.add('selected');
+                });
+            });
+
+            // Create and add the Next button
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Next';
+            nextButton.disabled = true; // Initially disable the button
+            nextButton.id = 'next-button';
+            nextButton.addEventListener('click', handleNextButtonClick);
+            optionsContainer.appendChild(nextButton);
+
+            // Enable the Next button when an option is selected
+            optionsContainer.addEventListener('change', () => {
+                nextButton.disabled = false;
+            });
+        }
+
+        function handleNextButtonClick() {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                answers.push(parseInt(selectedAnswer.value)); // Store the numeric value of the selected option
+            }
+
+            // Move to the next question
+            const questionContainer = document.getElementById('question-container');
+            questionContainer.classList.add('fade-out');
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+
+                if (currentQuestionIndex < questions.length) {
+                    loadQuestion(currentQuestionIndex); // Load next question
+                    questionContainer.classList.remove('fade-out');
+                } else {
+                    redirectToRecommendationPage(); // End of quiz
+                }
+            }, 500);
+        }
+
+        function redirectToRecommendationPage() {
+            const totalScore = answers.reduce((acc, val) => acc + val, 0);
+            window.location.href = `recommendation.html?score=${totalScore}`;
+        }
+
+        // Initial load
+        loadQuestion(currentQuestionIndex);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Recommendations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e293b, #4b5563);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        #recommendation-container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        #recommendations {
+            font-size: 1.5em;
+            margin: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .card-icon {
+            width: 150px;
+            margin: 20px auto;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #1e90ff;
+            background: white;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="recommendation-container">
+        <h1>Credit Card Recommendations</h1>
+        <img src="placeholder.png" alt="Credit Card" class="card-icon" id="card-icon">
+        <div id="recommendations"></div>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+
+    <script>
+        // Get the score from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = parseInt(urlParams.get('score'));
+
+        // Display recommendation based on the score
+        let recommendations = "";
+        let iconSrc = "";
+
+        if (score <= 5) {
+            recommendations = "You may want to start with basic credit options to build your credit history.";
+            iconSrc = "images/Discover.webp"; // Replace with actual image
+        } else if (score <= 8) {
+            recommendations = "Consider a standard rewards card with low fees.";
+            iconSrc = "rewards-card.png"; // Replace with actual image
+        } else if (score <= 11) {
+            recommendations = "You qualify for premium credit cards with good rewards and perks.";
+            iconSrc = "premium-card.png"; // Replace with actual image
+        } else {
+            recommendations = "You are in a great position for top-tier rewards and travel cards.";
+            iconSrc = "top-tier-card.png"; // Replace with actual image
+        }
+
+        // Update the page content
+        document.getElementById('recommendations').innerText = recommendations;
+        document.getElementById('card-icon').src = iconSrc;
+    </script>
+</body>
+</html>
