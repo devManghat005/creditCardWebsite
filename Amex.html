@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Blocks Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e293b, #4b5563);
+            color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .block {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .block:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .block h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #ffffff;
+        }
+
+        .block p {
+            margin: 10px 0 0;
+            font-size: 1em;
+            color: #d1d5db;
+        }
+
+        .block a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+
+        img {
+            height: 110px;
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="block">
+            <a href="https://card.americanexpress.com/d/blue-cash-everyday-credit-card/?utm_mcid=&utm_source=google&utm_medium=cpc&utm_term=%2Bamex%20%2Bblue%20%2Beveryday&utm_cmpid=18504642918&utm_adgid=145643263601&utm_tgtid=kwd-1211485133171&utm_mt=p&utm_adid=721074050356&utm_dvc=c&utm_ntwk=g&utm_adpos=&utm_plcmnt=&utm_locphysid=9026832&utm_locintid=&utm_feeditemid=&utm_devicemdl=&utm_plcmnttgt=&utm_programname=brandcps&utm_cmp=BCE&utm_sl=&gad_source=1&gclid=Cj0KCQiA4L67BhDUARIsADWrl7HovUhOgvcA9jSqJ7onRA0We4rJANWYkDwNATO1D9E5mhJ8IxecNuEaAsLnEALw_wcB" target="_blank">
+                <img src="images/BlueCashEveryday.webp" alt="" class="logo">
+                <h3>Blue Cash Everyday</h3>
+            </a>
+        </div>
+        <div class="block">
+            <a href="https://card.americanexpress.com/d/gold-card/?utm_mcid=&utm_source=google&utm_medium=cpc&utm_term=%2Bamex%20%2Bgold&utm_cmpid=18507429079&utm_adgid=141451150705&utm_tgtid=kwd-378783604937&utm_mt=p&utm_adid=720218129987&utm_dvc=c&utm_ntwk=g&utm_adpos=&utm_plcmnt=&utm_locphysid=9026832&utm_locintid=&utm_feeditemid=&utm_devicemdl=&utm_plcmnttgt=&utm_programname=brandcps&utm_cmp=Gold&utm_sl=&gad_source=1&gclid=Cj0KCQiA4L67BhDUARIsADWrl7EWCyfDfNRRprSyFxwFX0JGT5Qaz3TciSJ7bbWTa-pMGupkjwkVRiQaArpwEALw_wcB" target="_blank">
+                <img src="images/Gold.webp" alt="">
+                <h3>Gold</h3>
+            </a>
+        </div>
+        <div class="block">
+            <a href="https://card.americanexpress.com/d/platinum-card/?utm_mcid=&utm_source=google&utm_medium=cpc&utm_term=%2Bamex%20%2Bplatinum&utm_cmpid=18507428845&utm_adgid=142828790140&utm_tgtid=kwd-612804731508&utm_mt=p&utm_adid=718242918435&utm_dvc=c&utm_ntwk=g&utm_adpos=&utm_plcmnt=&utm_locphysid=9026832&utm_locintid=&utm_feeditemid=&utm_devicemdl=&utm_plcmnttgt=&utm_programname=brandcps&utm_cmp=Platinum&utm_sl=&gad_source=1&gclid=Cj0KCQiA4L67BhDUARIsADWrl7EyAZzu3tOkw4CvNcwT_FTjYfBw3c4F0P3tnLPvAg4wlFfNYgRNG6gaAihEEALw_wcB" target="_blank">
+                <img src="images/Platinum.webp" alt="">
+                <h3>Platinum</h3>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
